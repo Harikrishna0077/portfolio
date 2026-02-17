@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 260 60% 98%;
+    --foreground: 260 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 30% 15%;
+
+    --primary: 30 95% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 40% 95%;
+    --secondary-foreground: 260 30% 20%;
+
+    --muted: 260 20% 94%;
+    --muted-foreground: 260 10% 45%;
+
+    --accent: 265 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 260 20% 90%;
+    --input: 260 20% 90%;
+    --ring: 30 95% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --glow: 30 95% 55%;
+    --surface: 265 50% 52%;
+    --surface-light: 265 60% 96%;
+    --hero-gradient-start: 265 80% 55%;
+    --hero-gradient-end: 280 70% 65%;
+    --gradient-start: 30 95% 55%;
+    --gradient-end: 25 100% 50%;
+    --text-secondary: 260 10% 45%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-end))
+    );
+  }
+
+  .bg-hero-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--hero-gradient-start)),
+      hsl(var(--hero-gradient-end))
+    );
+  }
+
+  .glow-border {
+    box-shadow: 0 0 20px -5px hsl(var(--glow) / 0.3);
+  }
+
+  .bg-grid {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .bg-surface {
+    background-color: hsl(var(--surface-light));
+  }
+
+  .bg-surface-elevated {
+    background-color: hsl(var(--card));
+  }
+}
